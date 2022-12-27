@@ -10,20 +10,22 @@ th {
 }
 td {
     border-top: 1px solid black;
-    padding: 6px 0 6px;
+    padding: 6px 0px 6px;
     text-align: center;
     font-weight: 600;
     font-size: 14px;
 }
 .exchange-tile {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     height: 100%;
-    margin: auto 5vh auto auto;
+    margin: auto auto auto 2vw;
 }
 .exchange-icon {
     height: 5vh;
+    border-radius: 50%;
+    overflow: none;
     margin: auto 8px auto 6px;
 }
 .buttons-div {
