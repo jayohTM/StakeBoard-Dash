@@ -1,0 +1,110 @@
+{
+    "data": {
+      "protocols": [
+        {
+          "name": "Aave V2",
+          "slug": "AaveV2"
+        },
+        {
+          "name": "Badger",
+          "slug": "Badger"
+        },
+        {
+          "name": "Balancer V1",
+          "slug": "BalancerV1"
+        },
+        {
+          "name": "Balancer V2",
+          "slug": "BalancerV2"
+        },
+        {
+          "name": "Bancor",
+          "slug": "Bancor"
+        },
+        {
+          "name": "Compound",
+          "slug": "CompoundFinance"
+        },
+        {
+          "name": "Compound V3",
+          "slug": "CompoundV3"
+        },
+        {
+          "name": "Convex",
+          "slug": "Convex"
+        },
+        {
+          "name": "CREAM Finance",
+          "slug": "CreamFinance"
+        },
+        {
+          "name": "Curve",
+          "slug": "Curve"
+        },
+        {
+          "name": "Lido",
+          "slug": "Lido"
+        },
+        {
+          "name": "Liquity",
+          "slug": "Liquity"
+        },
+        {
+          "name": "MakerDAO",
+          "slug": "MakerDAO"
+        },
+        {
+          "name": "Nexus Mutual",
+          "slug": "NexusMutual"
+        },
+        {
+          "name": "Polygon Staking",
+          "slug": "PolygonStaking"
+        },
+        {
+          "name": "Rocket Pool",
+          "slug": "RocketPool"
+        },
+        {
+          "name": "Stakewise",
+          "slug": "Stakewise"
+        },
+        {
+          "name": "Strike",
+          "slug": "Strike"
+        },
+        {
+          "name": "SushiSwap",
+          "slug": "SushiSwap"
+        },
+        {
+          "name": "Synthetix",
+          "slug": "Synthetix"
+        },
+        {
+          "name": "Thor Liquidity",
+          "slug": "Thor"
+        },
+        {
+          "name": "Uniswap",
+          "slug": "Uniswap"
+        },
+        {
+          "name": "Uniswap V3",
+          "slug": "UniswapV3"
+        },
+        {
+          "name": "Yearn V1",
+          "slug": "YearnV1"
+        },
+        {
+          "name": "Yearn V2",
+          "slug": "YearnV2"
+        },
+        {
+            
+        }
+  
+      ]
+    }
+  }

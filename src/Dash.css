@@ -6,7 +6,7 @@ nav {
   width: 100vw;
   left: 50%;
   transform: translate(-50%);
-  top: -7vh;
+  top: 0;
 }
 p {
   margin: 3px 0 3px;
@@ -25,6 +25,8 @@ p {
 }
 .logo {
   position: relative;
+  object-fit: cover;
+  height: 13vh;
   width: 250px;
 }
 .button-container {
