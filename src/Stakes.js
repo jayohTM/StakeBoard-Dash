@@ -264,6 +264,11 @@ function Stakes() {
         ) : (
             <div>Loading data...</div>
         )}
+        {dataNew && dataNew.length === 0 ? (
+            <div>test</div>
+        ):(
+            null
+        )}
         </div>
     );
 }
