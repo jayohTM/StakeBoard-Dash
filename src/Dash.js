@@ -1,8 +1,15 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import "./Dash.css";
+import { useState } from "react";
 import Stakes from "./Stakes";
 
 function Dash() {
+    const [dataNew, setData] = useState(null);
+
+    // callback function to update the value of dataNew in the parent component
+    const updateData = (newData) => {
+        setData(newData);
+    }
     return(
         <div className='background'>
             <nav>
@@ -16,7 +23,11 @@ function Dash() {
                     <div className="dash-header">
                         <div>
                             <span className="active-header">Active</span>
-                            <p>2 active  staking account(s)</p>
+                            { dataNew ? (
+                                <p>{dataNew.length} active  staking account(s)</p>
+                            ) : (
+                                <p>No wallet linked</p>
+                            )}
                         </div>
                         <div className="update-modal">
                             <p className="update-status">Updated 15 seconds ago</p>
@@ -25,11 +36,11 @@ function Dash() {
                         </div>
                     </div>
                     <div className="dash-stakes">
-                        <Stakes/>
+                        <Stakes updateData={updateData}/>
                     </div>
                 </div>  
             </div>
         </div>
     )
 }
-export default Dash
+export default Dash;

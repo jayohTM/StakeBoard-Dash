@@ -208,9 +208,9 @@ function requestAPI(query) {
     });
 }
 
-function Stakes() {  
+function Stakes(props) {  
     const [dataNew, setData] = useState(null);
-
+    
     useEffect(() => {
         async function getData() {
             try {
@@ -218,7 +218,10 @@ function Stakes() {
                 //const data = await response.json();
                 const filteredElements = data.filter((data) => data.total !== 0);
                 setData(filteredElements);
+                const updateData = props.updateData;
+                updateData(filteredElements);
                 console.log(filteredElements);
+
             } catch (error) {
                 console.error(error);
                 setData({ error: error.message });
