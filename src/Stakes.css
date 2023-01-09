@@ -55,3 +55,9 @@ td {
     cursor: pointer;
 
 }
+@media (max-width: 601px) {
+    tr {
+        margin-left: auto;
+        width: 70vw;
+    }
+}
