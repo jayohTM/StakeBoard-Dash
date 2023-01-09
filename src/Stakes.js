@@ -240,27 +240,27 @@ function Stakes(props) {
                     <th>Status</th>
                     <th>Quantity</th>
                     <th>Estimated APY</th>
-                    <th>Claimable</th>
+                    <th></th>
                     <th></th>
                 </tr>
                 {dataNew.map((item) => (
                     <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={item.chains[0].positions[0].supplied[0].token.icon} className="exchange-icon"></img>
-                            {item.chains[0].positions[0].supplied[0].token.name}
-                        </div>
-                    </td>
-                    <td>Staking</td>
-                    <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
-                    <td>{item.chains[0].positions[0].supplied[0].apr}</td>
-                    <td>0</td>
-                    <td>
-                        <div className="buttons-div">
-                        <button className="claim-button button-text">Claim</button>
-                        <button className="stake-button button-text">Unstake</button>
-                        </div>
-                    </td>
+                        <td>
+                            <div className="exchange-tile">
+                                <img src={item.chains[0].positions[0].supplied[0].token.icon} className="exchange-icon"></img>
+                                {item.chains[0].positions[0].supplied[0].token.name}
+                            </div>
+                        </td>
+                        <td>Staking</td>
+                        <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
+                        <td>{item.chains[0].positions[0].supplied[0].apr}</td>
+                        <td></td>
+                        <td>
+                            <div className="buttons-div">
+                            <button className="claim-button button-text">Claim</button>
+                            <button className="stake-button button-text">Unstake</button>
+                            </div>
+                        </td>
                     </tr>
                 ))}
             </table>

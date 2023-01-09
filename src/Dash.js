@@ -1,5 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import "./Dash.css";
+import Active from "./active.svg"
+import Refresh from "./refresh.svg"
 import { useState } from "react";
 import Stakes from "./Stakes";
 
@@ -21,8 +23,11 @@ function Dash() {
             <div className="dashboard">
                 <div className="inner-dash">
                     <div className="dash-header">
-                        <div>
-                            <span className="active-header">Active</span>
+                        <div className="active-accounts-div">
+                            <span className="active-header">
+                                <img src={Active} className="active-icon"></img>
+                                Active
+                            </span>
                             { dataNew ? (
                                 <p>{dataNew.length} active  staking account(s)</p>
                             ) : (
@@ -30,9 +35,10 @@ function Dash() {
                             )}
                         </div>
                         <div className="update-modal">
-                            <p className="update-status">Updated 15 seconds ago</p>
-                            <button className="update-button">
-                            </button>
+                            <p className="update-status">
+                                <img src={Refresh} className="refresh-icon"></img>
+                                Updated 15 seconds ago
+                            </p>
                         </div>
                     </div>
                     <div className="dash-stakes">
