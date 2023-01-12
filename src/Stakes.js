@@ -194,7 +194,7 @@ function requestAPI(query) {
       "Connection": "keep-alive",
       "DNT": "1",
       "Origin": "https://public-api.defiyield.app",
-      "X-Api-Key": "ca962a0d-2e55-4a66-93c7-90c62eb42210"
+      "X-Api-Key": "58a2d695-c6ab-429e-8054-819f05d9a62a"
     };
     const data = {
       query: `${query}`
@@ -247,8 +247,8 @@ function Stakes(props) {
                     <tr className="stakes-row">
                     <td>
                         <div className="exchange-tile">
-                            <img src={item.chains[0].positions[0].supplied[0].token.icon} className="exchange-icon"></img>
-                            {item.chains[0].positions[0].supplied[0].token.name}
+                            <img src={`https://defiyield-icons.s3.eu-central-1.amazonaws.com/integrations/protocols/${item.protocol.slug}.webp`} className="exchange-icon"></img>
+                            {item.protocol.slug}
                         </div>
                     </td>
                     <td>Staking</td>
