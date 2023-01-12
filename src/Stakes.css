@@ -2,10 +2,7 @@
     border-collapse: collapse;
     width: 100%;
 }
-tr {
-    display: flex;
-    justify-content: space-around;
-}
+
 th {
     color: #535353;
     font-weight: 500;

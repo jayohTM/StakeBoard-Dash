@@ -25,7 +25,7 @@ p {
   font-size: 24px;
 }
 .active-icon {
-  margin-right: 1vw;
+  margin-right: min(1vw, 7px);
 }
 .logo {
   position: relative;
@@ -63,7 +63,7 @@ p {
   align-items: center;
 }
 .refresh-icon {
-  margin-right: 1vw;
+  margin-right: min(1vw, 6px);
 }
 .update-status {
   font-size: 12px;

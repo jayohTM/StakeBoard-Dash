@@ -246,14 +246,14 @@ function Stakes(props) {
                     <tr className="stakes-row">
                         <td>
                             <div className="exchange-tile">
-                                <img src={`https://defiyield-icons.s3.eu-central-1.amazonaws.com/integrations/protocols/${item.protocol.slug}.webp`} className="exchange-icon"></img>
+                                <img src={`https://defiyield-icons.s3.eu-central-1.amazonaws.com/integrations/protocols/${item.protocol.slug.toLowerCase()}.webp`} className="exchange-icon"></img>
                                 {item.protocol.slug}
                             </div>
                         </td>
                         <td>Staking</td>
                         <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
                         <td>{item.chains[0].positions[0].supplied[0].apr}</td>
-                        <td>0</td>
+                        <td></td>
                     </tr>
                 ))}
             </table>
