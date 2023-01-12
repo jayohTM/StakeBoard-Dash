@@ -1,4 +1,4 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, ConnectButton, darkTheme } from "@rainbow-me/rainbowkit";
 import "./Dash.css";
 import Active from "./active.svg"
 import Refresh from "./refresh.svg"
