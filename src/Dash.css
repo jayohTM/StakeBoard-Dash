@@ -8,20 +8,24 @@ nav {
   transform: translate(-50%);
   top: 0;
 }
-p {
-  margin: 3px 0 3px;
-  font-size: 14px;
-}
-.active-header {
-  font-weight: 700;
-  font-size: 24px;
-}
 .background {
   position: absolute;
   background-color: black;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow: hidden;
+}
+p {
+  margin: 3px 0 3px;
+  font-size: 14px;
+}
+.active-header {
+  display: flex;
+  font-weight: 700;
+  font-size: 24px;
+}
+.active-icon {
+  margin-right: 1vw;
 }
 .logo {
   position: relative;
@@ -36,10 +40,14 @@ p {
 .dashboard {
   display: flex;
   background-color: lightgray;
-  margin: 14vh auto 10vh;
+  margin-top: 14vh;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 85vw;
+  min-height: 86vh;
   height: fit-content;
-  border-radius: 50px;
+  border-radius: 50px 50px 0 0
 }
 .inner-dash {
   width: 100%;
@@ -54,21 +62,8 @@ p {
   justify-content: right;
   align-items: center;
 }
-.update-button {
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 2vh;
-  background-image: url(./refresh.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 2;
-}
-.update-button:hover {
-  background-color: #adadad;
-}
-.update-button img {
-  margin: auto;
+.refresh-icon {
+  margin-right: 1vw;
 }
 .update-status {
   font-size: 12px;
@@ -76,3 +71,42 @@ p {
   margin: 0 1vh 0 0;
 }
 
+@media (max-width: 601px) {
+  .logo {
+    width: 150px;
+    height: 10vh;
+  }
+  .button-container {
+    top: 10vh;
+    right: auto;
+  }
+  .dashboard {
+    width: 100%;
+    margin-top: 17vh;
+    min-height: 83vh;
+  }
+  .inner-dash {
+    margin-top: 2vh;
+  }
+  .dash-header {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+  .dash-header {
+    justify-content: center;
+    text-align: center;
+  }
+  .active-accounts-div {
+    margin-top: 2.25vh;
+    margin-bottom: 1vh;
+  }
+  p {
+    margin-top: 1vh;
+  }
+  .update-modal {
+    grid-row: 1;
+  }
+  .active-header {
+    justify-content: center;
+  }
+}
