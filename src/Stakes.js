@@ -241,7 +241,6 @@ function Stakes(props) {
                     <th>Quantity</th>
                     <th>Estimated APY</th>
                     <th></th>
-                    <th></th>
                 </tr>
                 {dataNew.map((item) => (
                     <tr className="stakes-row">
@@ -255,12 +254,6 @@ function Stakes(props) {
                         <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
                         <td>{item.chains[0].positions[0].supplied[0].apr}</td>
                         <td>0</td>
-                        <td>
-                            <div className="buttons-div">
-                            <button className="claim-button button-text">Claim</button>
-                            <button className="stake-button button-text">Unstake</button>
-                            </div>
-                        </td>
                     </tr>
                 ))}
             </table>
