@@ -35,6 +35,9 @@ async function sendQuery() {
                                 symbol
                             }
                         }
+                        rewarded {
+                            apr
+                        }
                     }
                 }
             }
@@ -82,6 +85,9 @@ async function sendQuery() {
                                 symbol
                             }
                         }
+                        rewarded{
+                            apr
+                        }
                     }
                 }
             }
@@ -111,6 +117,9 @@ async function sendQuery() {
                     icon
                     symbol
                     }
+                }
+                rewarded {
+                    apr
                 }
                 }
             }
@@ -145,6 +154,9 @@ async function sendQuery() {
                             symbol
                         }
                     }
+                    rewarded{
+                        apr
+                    }
                 }
             }
         }
@@ -174,6 +186,10 @@ async function sendQuery() {
                 icon
                 symbol
                 }
+                
+            }
+            rewarded {
+                apr
             }
             }
         }
@@ -252,7 +268,7 @@ function Stakes(props) {
                         </td>
                         <td>Staking</td>
                         <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
-                        <td>{item.chains[0].positions[0].supplied[0].apr}</td>
+                        <td>{(item.chains[0].positions[0].rewarded[0].apr * 100).toFixed(1)}%</td>
                         <td></td>
                     </tr>
                 ))}

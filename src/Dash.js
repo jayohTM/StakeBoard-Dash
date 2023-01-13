@@ -4,7 +4,7 @@ import Active from "./active.svg"
 import Refresh from "./refresh.svg"
 import { useState } from "react";
 import Stakes from "./Stakes";
-
+import { useAccount } from "wagmi";
 function Dash() {
     const [dataNew, setData] = useState(null);
 
@@ -12,12 +12,14 @@ function Dash() {
     const updateData = (newData) => {
         setData(newData);
     }
+    const {address} = useAccount();
+    console.log("address"+address);
     return(
         <div className='background'>
             <nav>
                 <img className='logo' src='https://www.figma.com/file/QVd6xwMEtNYwTpHcYZBo2S/image/5cdfada92e1bfdea9dbc6f108a49a9d7f55a7625?fuid=1187932539258633732'></img>
                 <div className="button-container">
-                    <ConnectButton />
+                    <ConnectButton chainStatus={"none"} />
                 </div>
             </nav>
             <div className="dashboard">

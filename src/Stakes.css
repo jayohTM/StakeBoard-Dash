@@ -23,10 +23,10 @@ td {
     margin: auto auto auto 2vw;
 }
 .exchange-icon {
-    height: 5vh;
+    height: 7vh;
     border-radius: 50%;
     overflow: none;
-    margin: auto 8px auto 6px;
+    margin: auto 10px auto 3px;
 }
 .buttons-div {
     display: flex;
