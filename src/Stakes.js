@@ -1,6 +1,5 @@
 import "./Stakes.css";
-import eth from "./eth.svg"
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import protocolList from "./Protocols.json";
 async function sendQuery() {
     const protocolBalanceList = new Array();
@@ -226,18 +225,8 @@ function requestAPI(query) {
 
 function Stakes(props) {  
     const [dataNew, setData] = useState(null);
-    const [timeSinceGetData, setTimeSinceGetData] = useState(0);
     const updateData = props.updateData;
     const accountCount = props.accountCount;
-    useEffect(() => {
-        //change to use date function so that a device can leave the page on mobile and devices and still have updated time
-        let intervalId = setInterval(() => {
-            setTimeSinceGetData((timeSinceGetData + 1));
-            console.log("time" + timeSinceGetData);
-            updateData(timeSinceGetData);
-        }, 1000)
-        return () => clearInterval(intervalId);
-    }, [timeSinceGetData]);
     
     async function getData() {
         try {
@@ -246,8 +235,8 @@ function Stakes(props) {
             const filteredElements = data.filter((data) => data.total !== 0);
             setData(filteredElements);
             accountCount(filteredElements.length)
-            if (dataNew) {
-                setTimeSinceGetData(0);
+            if (dataNew !== null) {
+                updateData(0);
             }
             console.log(filteredElements);
         } catch (error) {
