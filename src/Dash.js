@@ -7,10 +7,13 @@ import Stakes from "./Stakes";
 import { useAccount } from "wagmi";
 function Dash() {
     const [dataNew, setData] = useState(null);
-
+    const [accounts, setAccounts] = useState(null);
     // callback function to update the value of dataNew in the parent component
     const updateData = (newData) => {
         setData(newData);
+    }
+    const accountCount = (updatedCount) => {
+        setAccounts(updatedCount)
     }
     const {address} = useAccount();
     console.log("address"+address);
@@ -30,21 +33,22 @@ function Dash() {
                                 <img src={Active} className="active-icon"></img>
                                 Active
                             </span>
-                            { dataNew ? (
-                                <p>{dataNew.length} active  staking account(s)</p>
+                            { accounts ? (
+                                <p>{accounts} active staking account(s)</p>
                             ) : (
                                 <p>No wallet linked</p>
                             )}
                         </div>
                         <div className="update-modal">
                             <p className="update-status">
+                                {/*move this to different component, pass datanew as prop, see if it improves performance and only refreshes that componenet */}
                                 <img src={Refresh} className="refresh-icon"></img>
-                                Updated 15 seconds ago
+                                Updated {dataNew} seconds ago
                             </p>
                         </div>
                     </div>
                     <div className="dash-stakes">
-                        <Stakes updateData={updateData}/>
+                        <Stakes updateData={updateData} accountCount={accountCount}/>
                     </div>
                 </div>  
             </div>

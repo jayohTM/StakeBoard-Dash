@@ -226,29 +226,44 @@ function requestAPI(query) {
 
 function Stakes(props) {  
     const [dataNew, setData] = useState(null);
-    
+    const [timeSinceGetData, setTimeSinceGetData] = useState(0);
+    const updateData = props.updateData;
+    const accountCount = props.accountCount;
     useEffect(() => {
-        async function getData() {
-            try {
-                const data = await sendQuery();
-                //const data = await response.json();
-                const filteredElements = data.filter((data) => data.total !== 0);
-                setData(filteredElements);
-                const updateData = props.updateData;
-                updateData(filteredElements);
-                console.log(filteredElements);
-
-            } catch (error) {
-                console.error(error);
-                setData({ error: error.message });
+        //change to use date function so that a device can leave the page on mobile and devices and still have updated time
+        let intervalId = setInterval(() => {
+            setTimeSinceGetData((timeSinceGetData + 1));
+            console.log("time" + timeSinceGetData);
+            updateData(timeSinceGetData);
+        }, 1000)
+        return () => clearInterval(intervalId);
+    }, [timeSinceGetData]);
+    
+    async function getData() {
+        try {
+            const data = await sendQuery();
+            //const data = await response.json();
+            const filteredElements = data.filter((data) => data.total !== 0);
+            setData(filteredElements);
+            accountCount(filteredElements.length)
+            if (dataNew) {
+                setTimeSinceGetData(0);
             }
-            }
-            
-
-        getData();
+            console.log(filteredElements);
+        } catch (error) {
+            console.error(error);
+            setData({ error: error.message });
+        }
+    }
+    //Gets updated API data when page refreshes
+    useEffect(() => {
+        if(dataNew == null) {
+            getData();
+        }
     }, []); 
     return(
         <div>
+        {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
         {dataNew ? (
             <table className="stakes-table">
                 <tr>
@@ -274,10 +289,10 @@ function Stakes(props) {
                 ))}
             </table>
         ) : (
-            <div>Loading data...</div>
+            <div>{/*Will be a wallet connect screen later, currently wallet loads instantly (will check for loading using walletaddress and datanew)*/}Loading data...</div>
         )}
         {dataNew && dataNew.length === 0 ? (
-            <div>test</div>
+            <div>An error as occurred :(</div>
         ):(
             null
         )}
