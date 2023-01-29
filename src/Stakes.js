@@ -1,6 +1,9 @@
 import "./Stakes.css";
 import { useEffect, useState } from 'react';
 import protocolList from "./Protocols.json";
+import { useAccount } from "wagmi";
+const {address} = useAccount;
+console.log(address)
 async function sendQuery() {
     const protocolBalanceList = new Array();
     const protocolsData = protocolList;
@@ -209,7 +212,7 @@ function requestAPI(query) {
       "Connection": "keep-alive",
       "DNT": "1",
       "Origin": "https://public-api.defiyield.app",
-      "X-Api-Key": "58a2d695-c6ab-429e-8054-819f05d9a62a"
+      "X-Api-Key": "58a2d695-c6ab-429e-8054-819f05d9a62"
     };
     const data = {
       query: `${query}`
@@ -233,12 +236,15 @@ function Stakes(props) {
             const data = await sendQuery();
             //const data = await response.json();
             const filteredElements = data.filter((data) => data.total !== 0);
-            setData(filteredElements);
-            accountCount(filteredElements.length)
-            if (dataNew !== null) {
-                updateData(0);
-            }
+            new Promise(resolve => {
+                setData(filteredElements);
+                resolve();
+            }).then(() => updateData(true));
+            accountCount(filteredElements.length);
             console.log(filteredElements);
+            /*if (dataNew) {
+                updateData(0);
+            }*/
         } catch (error) {
             console.error(error);
             setData({ error: error.message });
@@ -246,14 +252,14 @@ function Stakes(props) {
     }
     //Gets updated API data when page refreshes
     useEffect(() => {
-        if(dataNew == null) {
+        if(dataNew == null && {address}) {
             getData();
         }
     }, []); 
     return(
         <div>
         {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
-        {dataNew ? (
+        {dataNew && {address} ? (
             <table className="stakes-table">
                 <tr>
                     <th></th>
@@ -278,10 +284,20 @@ function Stakes(props) {
                 ))}
             </table>
         ) : (
-            <div>{/*Will be a wallet connect screen later, currently wallet loads instantly (will check for loading using walletaddress and datanew)*/}Loading data...</div>
+            null
+        )}
+        { !{address} ? (
+            <div>Connect a Wallet</div>
+        ) : (
+            null
+        )}
+        { dataNew == null && {address} ? (
+            <div>Loading stakes...</div>
+        ) : (
+            null
         )}
         {dataNew && dataNew.length === 0 ? (
-            <div>An error as occurred :(</div>
+            <div>You have no active stakes :(</div>
         ):(
             null
         )}

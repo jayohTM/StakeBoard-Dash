@@ -10,10 +10,12 @@ function Dash() {
     const [accounts, setAccounts] = useState(null);
     // callback function to update the value of dataNew in the parent component
     const updateData = (newData) => {
+        console.log("dashlog " + newData);
         setData(newData);
     }
     const accountCount = (updatedCount) => {
         setAccounts(updatedCount)
+        console.log("updatedcount " + updatedCount);
     }
     const {address} = useAccount();
     console.log("address"+address);
@@ -29,7 +31,7 @@ function Dash() {
                 <div className="inner-dash">
                     <div className="dash-header">
                         <ActiveAccounts accounts={accounts} />
-                        <LastRefresh dataNew={dataNew} />
+                        <LastRefresh dataNew={dataNew} counter={0} />
                     </div>
                     <div className="dash-stakes">
                         <Stakes updateData={updateData} accountCount={accountCount}/>
