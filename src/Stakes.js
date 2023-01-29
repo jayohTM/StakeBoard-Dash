@@ -2,7 +2,7 @@ import "./Stakes.css";
 import { useEffect, useState } from 'react';
 import protocolList from "./Protocols.json";
 import { useAccount } from "wagmi";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 const {address} = useAccount;
 console.log(address)
@@ -294,7 +294,9 @@ function Stakes(props) {
             null
         )}
         { dataNew == null && {address} ? (
-            <Skeleton count={4}/>
+            <SkeletonTheme height={"8vh"}>
+                <Skeleton count={4} style={{marginBottom: "1vh" }}/>
+            </SkeletonTheme>
         ) : (
             null
         )}
