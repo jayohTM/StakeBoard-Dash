@@ -1,5 +1,6 @@
 import Refresh from "./refresh.svg"
 import { useState, useEffect } from "react";
+import { useAccount } from "wagmi";
 
 function LastRefresh(props) {
     const [timeSinceGetData, setTimeSinceGetData] = useState(0);
@@ -27,10 +28,7 @@ function LastRefresh(props) {
                         Updated {timeSinceGetData} seconds ago
                     </>
                 ) : (
-                    <>
-                        <img src={Refresh} className="refresh-icon"></img>
-                        No wallet connected
-                    </>
+                    null
                 )}
             </p>
         </div>

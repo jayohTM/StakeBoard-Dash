@@ -2,6 +2,8 @@ import "./Stakes.css";
 import { useEffect, useState } from 'react';
 import protocolList from "./Protocols.json";
 import { useAccount } from "wagmi";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 const {address} = useAccount;
 console.log(address)
 async function sendQuery() {
@@ -292,7 +294,7 @@ function Stakes(props) {
             null
         )}
         { dataNew == null && {address} ? (
-            <div>Loading stakes...</div>
+            <Skeleton count={4}/>
         ) : (
             null
         )}
