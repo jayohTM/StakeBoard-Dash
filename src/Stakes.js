@@ -4,9 +4,9 @@ import protocolList from "./Protocols.json";
 import { useAccount } from "wagmi";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
-const {address} = useAccount;
-console.log(address)
-async function sendQuery() {
+//Environment variable for the Defiyield API key should ALWAYS use the name, REACT_APP_API_KEY
+const apiKey = process.env.REACT_APP_API_KEY;
+async function sendQuery(address) {
     const protocolBalanceList = new Array();
     const protocolsData = protocolList;
     console.log(protocolsData.data.protocols.length);
@@ -18,7 +18,7 @@ async function sendQuery() {
         ${slug}: protocolBalance (
             balances: {
                 chainIds:1
-                walletAddress:"0x3C60b54bE40f5F29Bec94EBBfcf3e469222680a2"
+                walletAddress:"${address}"
                 protocolName:"${slug}"
             }
             ){
@@ -68,7 +68,7 @@ async function sendQuery() {
         ${slug}: protocolBalance (
             balances: {
                 chainIds:1
-                walletAddress:"0x3C60b54bE40f5F29Bec94EBBfcf3e469222680a2"
+                walletAddress:"${address}"
                 protocolName:"${slug}"
             }
             ){
@@ -101,7 +101,7 @@ async function sendQuery() {
         ${slug}: protocolBalance (
             balances: {
                 chainIds:1
-                walletAddress:"0x3C60b54bE40f5F29Bec94EBBfcf3e469222680a2"
+                walletAddress:"${address}"
                 protocolName:"${slug}"
             }
             ){
@@ -137,7 +137,7 @@ async function sendQuery() {
     ${slug}: protocolBalance (
         balances: {
             chainIds:1
-            walletAddress:"0x3C60b54bE40f5F29Bec94EBBfcf3e469222680a2"
+            walletAddress:"${address}"
             protocolName:"${slug}"
         }
         ){
@@ -170,7 +170,7 @@ async function sendQuery() {
     ${slug}: protocolBalance (
         balances: {
             chainIds:1
-            walletAddress:"0x3C60b54bE40f5F29Bec94EBBfcf3e469222680a2"
+            walletAddress:"${address}"
             protocolName:"${slug}"
         }
         ){
@@ -214,7 +214,7 @@ function requestAPI(query) {
       "Connection": "keep-alive",
       "DNT": "1",
       "Origin": "https://public-api.defiyield.app",
-      "X-Api-Key": "58a2d695-c6ab-429e-8054-819f05d9a62"
+      "X-Api-Key": `${apiKey}`
     };
     const data = {
       query: `${query}`
@@ -229,13 +229,14 @@ function requestAPI(query) {
 }
 
 function Stakes(props) {  
+    const {address} = useAccount();
     const [dataNew, setData] = useState(null);
     const updateData = props.updateData;
     const accountCount = props.accountCount;
     
-    async function getData() {
+    async function getData(address) {
         try {
-            const data = await sendQuery();
+            const data = await sendQuery(address);
             //const data = await response.json();
             const filteredElements = data.filter((data) => data.total !== 0);
             new Promise(resolve => {
@@ -255,7 +256,7 @@ function Stakes(props) {
     //Gets updated API data when page refreshes
     useEffect(() => {
         if(dataNew == null && {address}) {
-            getData();
+            getData(address);
         }
     }, []); 
     return(

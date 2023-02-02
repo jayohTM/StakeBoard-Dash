@@ -17,8 +17,7 @@ function Dash() {
         setAccounts(updatedCount)
         console.log("updatedcount " + updatedCount);
     }
-    const {address} = useAccount();
-    console.log("address"+address);
+
     return(
         <div className='background'>
             <nav>
