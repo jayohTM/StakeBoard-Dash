@@ -74,7 +74,7 @@ p {
   margin: 0 1vh 0 0;
 }
 
-@media (max-width: 601px) {
+@media (max-width: 700px) {
   .logo {
     width: 150px;
     height: 10vh;

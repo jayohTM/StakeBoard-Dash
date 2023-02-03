@@ -255,14 +255,14 @@ function Stakes(props) {
     }
     //Gets updated API data when page refreshes
     useEffect(() => {
-        if(dataNew == null && {address}) {
+        if(dataNew == null && address) {
             getData(address);
         }
     }, []); 
     return(
         <div>
         {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
-        {dataNew && {address} ? (
+        {dataNew && address && dataNew.length > 0 ? (
             <table className="stakes-table">
                 <tr>
                     <th></th>
@@ -289,12 +289,12 @@ function Stakes(props) {
         ) : (
             null
         )}
-        { !{address} ? (
+        { !address ? (
             <div>Connect a Wallet</div>
         ) : (
             null
         )}
-        { dataNew == null && {address} ? (
+        { dataNew == null && address ? (
             <SkeletonTheme height={"8vh"}>
                 <Skeleton count={4} style={{marginBottom: "1vh" }}/>
             </SkeletonTheme>

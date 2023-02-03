@@ -2,6 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LastRefresh from "./LastRefresh";
 import ActiveAccounts from "./ActiveAccounts";
 import "./Dash.css";
+import StakeboardLogo from "./stakeboard.png"
 import { useState } from "react";
 import Stakes from "./Stakes";
 function Dash() {
@@ -20,7 +21,7 @@ function Dash() {
     return(
         <div className='background'>
             <nav>
-                <img className='logo' src='https://www.figma.com/file/QVd6xwMEtNYwTpHcYZBo2S/image/5cdfada92e1bfdea9dbc6f108a49a9d7f55a7625?fuid=1187932539258633732'></img>
+                <img className='logo' src={StakeboardLogo}></img>
                 <div className="button-container">
                     <ConnectButton chainStatus={"none"} />
                 </div>
