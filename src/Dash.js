@@ -4,7 +4,6 @@ import ActiveAccounts from "./ActiveAccounts";
 import "./Dash.css";
 import { useState } from "react";
 import Stakes from "./Stakes";
-import { useAccount } from "wagmi";
 function Dash() {
     const [dataNew, setData] = useState(null);
     const [accounts, setAccounts] = useState(null);
