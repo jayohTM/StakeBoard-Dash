@@ -261,7 +261,7 @@ function Stakes(props) {
     return(
         <div>
         {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
-        {dataNew && {address} ? (
+        {dataNew && {address} && dataNew.length !== 0 ? (
             <table className="stakes-table">
                 <tr>
                     <th></th>

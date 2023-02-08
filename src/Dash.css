@@ -13,9 +13,9 @@ nav {
   background-color: black;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
-p {
+.active-desc {
   margin: 3px 0 3px;
   font-size: 14px;
 }
@@ -50,12 +50,11 @@ p {
   width: 85vw;
   min-height: 86vh;
   height: fit-content;
-  border-radius: 50px 50px 0 0
+  border-radius: 50px 50px 0 0;
 }
 .inner-dash {
-  overflow-x: hidden;
-  overflow: auto;
   display: flex;
+  height: 100%;
   flex-direction: column;
   width: 100%;
   margin: 4vh 4vw 3vh;
@@ -81,7 +80,7 @@ p {
   margin: 0 1vh 0 0;
 }
 
-@media (max-width: 601px) {
+@media (max-width: 701px) {
   .logo {
     width: 150px;
     height: 10vh;
@@ -99,6 +98,7 @@ p {
     margin-top: 2vh;
   }
   .dash-header {
+    display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
   }

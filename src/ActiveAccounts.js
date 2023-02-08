@@ -8,7 +8,7 @@ function ActiveAccounts (props) {
                 Active
             </span>
             { props.accounts >= 0 ? (
-                <p>{props.accounts} active staking account(s)</p>
+                <p className="active-desc">{props.accounts} active staking account(s)</p>
             ) : (
                 <p>No wallet linked</p>
             )}
