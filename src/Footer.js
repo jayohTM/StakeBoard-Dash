@@ -4,18 +4,16 @@ function Footer () {
     return (
         <div className="messages-div">
             <div className="new-here oppo-heading">
-                <h4>New Here?</h4>   
+                <h4>New here?</h4>   
                 <p className="message-desc">
-                    Learn how to stake, check out our guides and peep our socials.
+                <a href="https://www.stakepark.xyz" target="_blank">Learn how to stake</a> at the StakePark.xyz and <a href="https://linktr.ee/stakepark" target="_blank">check our socials</a>.
                 </p>         
             </div>
             <div className="coming-soon oppo-heading">
-                <h4>Coming soon...</h4>
+                <h4>Issues?</h4>
                 <p className="message-desc">
-                    Social features? More protocols? Liquid Staking Death co-branded campaign?
-                    <br/><br/>
-                    Who knows... but you’ll hear about it on 
-                    Twitter first.
+                    <a href="https://feedback.stakepark.xyz" target="_blank">Report bugs and request features</a>!
+                    
                 </p>
             </div>
         </div>
