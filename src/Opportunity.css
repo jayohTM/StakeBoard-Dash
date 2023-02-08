@@ -1,6 +1,7 @@
 a {
     color: black;
     text-decoration: none;
+    justify-self: right;
 }
 .oppo-header {
     display: flex;
@@ -36,6 +37,7 @@ td {
     justify-content: left;
     align-items: center;
     height: 100%;
+    width: fit-content;
     margin: auto auto auto 2vw;
 }
 .exchange-icon {

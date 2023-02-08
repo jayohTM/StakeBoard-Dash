@@ -229,11 +229,13 @@ function requestAPI(query) {
 }
 
 function Stakes(props) {  
-    const {address} = useAccount();
+    const {address, isConnected, isConnecting, isReconnecting, isDisconnected} = useAccount();
     const [dataNew, setData] = useState(null);
     const updateData = props.updateData;
     const accountCount = props.accountCount;
-    
+    useEffect(() => {
+        console.log("Connected");
+    }, [])
     async function getData(address) {
         try {
             const data = await sendQuery(address);
@@ -254,14 +256,14 @@ function Stakes(props) {
     }
     //Gets updated API data when page refreshes
     useEffect(() => {
-        if(dataNew == null && {address}) {
+        if(dataNew == null && isConnected) {
             getData(address);
         }
-    }, []); 
+    }, [isConnected]); 
     return(
         <div>
         {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
-        {dataNew && {address} && dataNew.length !== 0 ? (
+        {dataNew && isConnected && dataNew.length !== 0 ? (
             <table className="stakes-table">
                 <tr>
                     <th></th>
@@ -288,12 +290,12 @@ function Stakes(props) {
         ) : (
             null
         )}
-        { !{address} ? (
+        { isDisconnected ? (
             <div>Connect a Wallet</div>
         ) : (
             null
         )}
-        { dataNew == null && {address} ? (
+        { (dataNew == null && isConnecting) || (dataNew == null && isConnected) || (dataNew == null && isReconnecting) && !isDisconnected ? (
             <SkeletonTheme height={"8vh"}>
                 <Skeleton count={4} style={{marginBottom: "1vh" }}/>
             </SkeletonTheme>
