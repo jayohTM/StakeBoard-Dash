@@ -37,9 +37,12 @@ p {
   position: absolute;
   right: 10%;
 }
+.dash-oppo {
+  margin-top: auto;
+}
 .dashboard {
   display: flex;
-  background-color: lightgray;
+  background-color: #C0C0C0;
   margin-top: 14vh;
   margin-bottom: 0;
   margin-left: auto;
@@ -50,6 +53,10 @@ p {
   border-radius: 50px 50px 0 0
 }
 .inner-dash {
+  overflow-x: hidden;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 4vh 4vw 3vh;
 }

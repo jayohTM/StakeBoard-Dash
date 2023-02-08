@@ -4,7 +4,9 @@ import ActiveAccounts from "./ActiveAccounts";
 import "./Dash.css";
 import { useState } from "react";
 import Stakes from "./Stakes";
-import { useAccount } from "wagmi";
+import Opportunities from "./Opportunities";
+import Footer from "./Footer";
+
 function Dash() {
     const [dataNew, setData] = useState(null);
     const [accounts, setAccounts] = useState(null);
@@ -35,6 +37,10 @@ function Dash() {
                     <div className="dash-stakes">
                         <Stakes updateData={updateData} accountCount={accountCount}/>
                     </div>
+                    <div className="dash-oppo">
+                        <Opportunities />
+                    </div>
+                    <Footer/>
                 </div>  
             </div>
         </div>

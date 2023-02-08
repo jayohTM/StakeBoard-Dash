@@ -237,7 +237,6 @@ function Stakes(props) {
     async function getData(address) {
         try {
             const data = await sendQuery(address);
-            //const data = await response.json();
             const filteredElements = data.filter((data) => data.total !== 0);
             new Promise(resolve => {
                 setData(filteredElements);
