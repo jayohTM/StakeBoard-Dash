@@ -20,7 +20,7 @@ function App() {
     ]
   );
   const { connectors } = getDefaultWallets({
-    appName: 'Stakeboard',
+    appName: 'StakeBoard',
     chains
   });
   const wagmiClient = createClient({
