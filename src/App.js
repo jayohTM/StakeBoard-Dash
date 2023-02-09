@@ -15,7 +15,7 @@ function App() {
   const { chains, provider } = configureChains(
     [mainnet, polygon, optimism, arbitrum],
     [
-      alchemyProvider({ apiKey: "V-_LszxbA71AN08V7UfqeGC4BZGEn1Ir" }),
+      alchemyProvider({ apiKey: "7NgQfM01vhHpxIHzQAUYx9XkIrWADPWg" }),
       publicProvider()
     ]
   );
