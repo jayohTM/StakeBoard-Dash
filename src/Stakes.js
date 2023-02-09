@@ -233,6 +233,9 @@ function Stakes(props) {
     const [dataNew, setData] = useState(null);
     const updateData = props.updateData;
     const accountCount = props.accountCount;
+    if (isDisconnected || isConnecting || isReconnecting){
+        accountCount(-1);
+    }
     useEffect(() => {
         console.log("Connected");
     }, [])
@@ -290,12 +293,12 @@ function Stakes(props) {
         ) : (
             null
         )}
-        { isDisconnected ? (
+        { isDisconnected || isConnecting || isReconnecting ? (
             <div>Connect a Wallet</div>
         ) : (
             null
         )}
-        { (dataNew == null && isConnecting) || (dataNew == null && isConnected) || (dataNew == null && isReconnecting) && !isDisconnected ? (
+        { (dataNew == null && isConnected) && !isDisconnected ? (
             <SkeletonTheme height={"8vh"}>
                 <Skeleton count={4} style={{marginBottom: "1vh" }}/>
             </SkeletonTheme>

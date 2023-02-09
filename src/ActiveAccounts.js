@@ -14,12 +14,12 @@ function ActiveAccounts (props) {
             ) : (
                 null
             )}
-            { isConnecting || isReconnecting ? (
+            { isConnected && props.accounts == -1 ? (
                 <p className="active-desc">Loading accounts...</p>
             ) : (
                 null
             )}
-            { isDisconnected ? (
+            { isDisconnected || isConnecting || isReconnecting ? (
                 <p className="active-desc">No wallet linked</p>
             ) : (
                 null

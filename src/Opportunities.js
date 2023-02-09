@@ -30,9 +30,10 @@ function Opportunities () {
                     <td>
                         <div className="exchange-tile">
                             <img src={LidoIcon} className="exchange-icon"></img>
+                            Lido
                         </div>
                     </td>
-                    <td>Lido</td>
+                    <td></td>
                     <td>ETH</td>
                     <td></td>
                     <td>4.8%</td>
