@@ -19,7 +19,7 @@ function Opportunities () {
             <table className="stakes-table">
                 <tr>
                     <th></th>
-                    <th>Validator</th>
+                    <th></th>
                     <th>Supported Coins</th>
                     <th></th>
                     <th>Estimated APY</th>
@@ -45,7 +45,7 @@ function Opportunities () {
                         </a>
                     </td>
                 </tr>
-                <tr className="stakes-row">
+                {/* <tr className="stakes-row">
                     <td>
                         <div className="exchange-tile">
                             <img src={AnkrIcon} className="exchange-icon"></img>
@@ -82,7 +82,7 @@ function Opportunities () {
                             </button>
                         </a>
                     </td>
-                </tr>
+                </tr> */}
             </table>
             <hr className="end-rule"/>
         </div>
