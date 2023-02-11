@@ -1,4 +1,4 @@
-import Refresh from "./refresh.svg"
+import Refresh from "./img/refresh.svg"
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
 

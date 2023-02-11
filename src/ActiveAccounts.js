@@ -1,4 +1,4 @@
-import Active from "./active.svg"
+import Active from "./img/active.svg"
 import { useAccount } from "wagmi";
 
 function ActiveAccounts (props) {
@@ -15,12 +15,12 @@ function ActiveAccounts (props) {
                 null
             )}
             { isConnected && props.accounts == -1 ? (
-                <p className="active-desc">Loading accounts...</p>
+                <p className="active-desc"></p>
             ) : (
                 null
             )}
             { isDisconnected || isConnecting || isReconnecting ? (
-                <p className="active-desc">No wallet linked</p>
+                <p className="active-desc">No wallet connected</p>
             ) : (
                 null
             )}
