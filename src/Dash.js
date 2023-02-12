@@ -6,6 +6,7 @@ import { useState } from "react";
 import Stakes from "./Stakes";
 import Opportunities from "./Opportunities";
 import Footer from "./Footer";
+import Logo from "./img/stakeboard-logo-header.png";
 
 function Dash() {
     const [dataNew, setData] = useState(null);
@@ -23,7 +24,7 @@ function Dash() {
     return(
         <div className='background'>
             <nav>
-                <img className='logo' src='https://www.figma.com/file/QVd6xwMEtNYwTpHcYZBo2S/image/5cdfada92e1bfdea9dbc6f108a49a9d7f55a7625?fuid=1187932539258633732'></img>
+                <img className='logo' src={Logo}></img>
                 <div className="button-container">
                     <ConnectButton chainStatus={"none"} />
                 </div>

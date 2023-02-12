@@ -1,4 +1,6 @@
 import "./Stakes.css";
+import ConnectWallet from "./img/connect.png";
+import NoStakes from "./img/no-stakes.png";
 import { useEffect, useState } from 'react';
 import protocolList from "./Protocols.json";
 import { useAccount } from "wagmi";
@@ -294,19 +296,19 @@ function Stakes(props) {
             null
         )}
         { isDisconnected || isConnecting || isReconnecting ? (
-            <div>Connect a Wallet</div>
+            <div><img className="center" src={ConnectWallet}></img><span className="centerText">Connect your wallet</span></div>
         ) : (
             null
         )}
         { (dataNew == null && isConnected) && !isDisconnected ? (
-            <SkeletonTheme height={"8vh"}>
-                <Skeleton count={4} style={{marginBottom: "1vh" }}/>
+            <SkeletonTheme height={"8vh"} highlightColor={"#5b5b5b"}>
+                <Skeleton count={3} style={{marginBottom: "1vh" }}/>
             </SkeletonTheme>
         ) : (
             null
         )}
         {dataNew && dataNew.length === 0 ? (
-            <div>You have no active stakes :(</div>
+            <div><img className="center" src={NoStakes}></img><span className="centerText">No active stakes found</span></div>
         ):(
             null
         )}
