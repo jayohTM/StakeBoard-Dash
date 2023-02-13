@@ -1,4 +1,4 @@
-import "./Opportunity.css";
+import "./styles/Opportunity.css";
 import LidoIcon from "./img/lido_symbol.svg";
 import AnkrIcon from "./img/ankr_symbol.svg";
 import AaveIcon from "./img/aave_symbol.svg";

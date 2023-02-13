@@ -1,4 +1,4 @@
-import "./Stakes.css";
+import "./styles/Stakes.css";
 import ConnectWallet from "./img/connect.png";
 import NoStakes from "./img/no-stakes.png";
 import { useEffect, useState } from 'react';

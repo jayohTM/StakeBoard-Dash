@@ -1,7 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LastRefresh from "./LastRefresh";
 import ActiveAccounts from "./ActiveAccounts";
-import "./Dash.css";
+import "./styles/Dash.css";
 import { useState } from "react";
 import Stakes from "./Stakes";
 import Opportunities from "./Opportunities";
