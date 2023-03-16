@@ -208,14 +208,14 @@ async function sendQuery(address) {
     return protocolBalanceList;
 }
 function requestAPI(query) {
-    const url = "https://public-api.defiyield.app/graphql/";
+    const url = "https://public-api.de.fi/graphql";
     const headers = {
       "Accept-Encoding": "gzip, deflate, br",
       "Content-Type": "application/json",
       "Accept": "application/json",
       "Connection": "keep-alive",
       "DNT": "1",
-      "Origin": "https://public-api.defiyield.app",
+      "Origin": "https://public-api.de.fi",
       "X-Api-Key": `${apiKey}`
     };
     const data = {
