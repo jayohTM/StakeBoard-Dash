@@ -2,11 +2,11 @@
 
 Live version: [https://app.stakepark.xyz](https://app.stakepark.xyz)
 
-Built by the [StakePark.xyz](https://www.stakepark.xyz) Team, StakeBoard is a staking dashboard app. Designed to help you keep tabs on active staking accounts in wallet. Supports many wallet connections, including MetaMask, Coinbase Wallet and many more via WalletConnect.
+Built by the [StakePark.xyz](https://www.stakepark.xyz) Team, StakeBoard is a staking dashboard app. Designed to help you keep tabs on active staking accounts in wallet. Supports many wallet connections, including MetaMask, Trust Wallet, Coinbase Wallet and many more via WalletConnect.
 
-With so many users burnt in 2022 by CeFi (Celsius, Voyager and so many others), we believe the time to learn how to stake natively is past due.\
+With so many users burnt in 2022 by CeFi (Celsius, Voyager and so many others), we believe the time to learn how to stake natively is past due.
 
-Our creed is: Stake or die! :skull: 
+Stake or die! :skull: 
 
 ## Available Scripts
 
