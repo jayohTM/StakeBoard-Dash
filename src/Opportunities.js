@@ -21,7 +21,8 @@ function Opportunities () {
                 </p>
             </div>
             <table className="stakes-table">
-                <tr>
+                <tbody>
+                    <tr>
                     <th></th>
                     <th></th>
                     <th>Supported Coins</th>
@@ -29,12 +30,12 @@ function Opportunities () {
                     <th>Estimated APY</th>
                     <th></th>
                     <th></th>
-                </tr>
-                <tr className="stakes-row">
+                    </tr>
+                    <tr className="stakes-row">
                     <td>
                         <div className="exchange-tile">
-                            <img src={LidoIcon} className="exchange-icon"></img>
-                            Lido
+                        <img src={LidoIcon} className="exchange-icon"></img>
+                        Lido
                         </div>
                     </td>
                     <td></td>
@@ -44,113 +45,14 @@ function Opportunities () {
                     <td></td>
                     <td>
                         <a href="https://stake.lido.fi/?ref=0x7eF61746Afe06a04776Bd0BAe02Fe455625FEB6e" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
+                        <button className="visit-button button-text">
+                            Visit Site
+                        </button>
                         </a>
                     </td>
-                </tr>
-                {/*
-                <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={AnkrIcon} className="exchange-icon"></img>
-                            Ankr
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>ETH</td>
-                    <td></td>
-                    <td>3.8%</td>
-                    <td></td>
-                    <td>
-                        <a href="https://www.ankr.com/staking/stake/ethereum/" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={AaveIcon} className="exchange-icon"></img>
-                            Aave
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>ETH</td>
-                    <td></td>
-                    <td>1.4%</td>
-                    <td></td>
-                    <td>
-                        <a href="https://app.aave.com/" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
-                        </a>
-                    </td>
-                </tr> 
-                <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={OpenOceanIcon} className="exchange-icon"></img>
-                            OpenOcean
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>ETH</td>
-                    <td></td>
-                    <td>3.8%</td>
-                    <td></td>
-                    <td>
-                        <a href="https://app.openocean.finance/referral/H0oXe7ZwIf2bOM3OHfMFgMYl5SIk1mglB0EqS7KrXMArkpKbtwJxPmJSa4HWTCP9" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={OasisIcon} className="exchange-icon"></img>
-                            Oasis
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>ETH</td>
-                    <td></td>
-                    <td>2.4%</td>
-                    <td></td>
-                    <td>
-                        <a href="https://oasis.app/?ref=0x7eF61746Afe06a04776Bd0BAe02Fe455625FEB6e" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                 <tr className="stakes-row">
-                    <td>
-                        <div className="exchange-tile">
-                            <img src={EverStakeIcon} className="exchange-icon"></img>
-                            EverStake
-                        </div>
-                    </td>
-                    <td></td>
-                    <td>ETH</td>
-                    <td></td>
-                    <td>0.4%</td>
-                    <td></td>
-                    <td>
-                        <a href="https://stake.is/zQ" target={"_blank"}>
-                            <button className="visit-button button-text">
-                                Visit Site
-                            </button>
-                        </a>
-                    </td>
-                </tr>  */}
+                    </tr>
+                    {/* Other table rows go here */}
+                </tbody>
             </table>
             <hr className="end-rule"/>
         </div>
