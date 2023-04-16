@@ -6,6 +6,7 @@ import protocolList from "./Protocols.json";
 import { useAccount } from "wagmi";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
+
 //Environment variable for the Defiyield API key should ALWAYS use the name, REACT_APP_API_KEY
 const apiKey = process.env.REACT_APP_API_KEY;
 async function sendQuery(address) {
@@ -235,9 +236,11 @@ function Stakes(props) {
     const [dataNew, setData] = useState(null);
     const updateData = props.updateData;
     const accountCount = props.accountCount;
-    if (isDisconnected || isConnecting || isReconnecting){
-        accountCount(-1);
-    }
+    useEffect(() => {
+        if (isDisconnected || isConnecting || isReconnecting) {
+          accountCount(-1);
+        }
+      }, [isDisconnected, isConnecting, isReconnecting, accountCount]);
     useEffect(() => {
         console.log("Connected");
     }, [])
@@ -270,28 +273,32 @@ function Stakes(props) {
         {/*Checks if the data variable is true (if it has been called), only shows table if the variable exists(checks for loading data)*/}
         {dataNew && isConnected && dataNew.length !== 0 ? (
             <table className="stakes-table">
-                <tr>
-                    <th></th>
-                    <th>Status</th>
-                    <th>Quantity</th>
-                    <th>Estimated APY</th>
-                    <th></th>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Status</th>
+                <th>Quantity</th>
+                <th>Estimated APY</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {dataNew.map((item) => (
+                <tr className="stakes-row">
+                  <td>
+                    <div className="exchange-tile">
+                      <img src={`https://defiyield-icons.s3.eu-central-1.amazonaws.com/integrations/protocols/${item.protocol.slug.toLowerCase()}.webp`} className="exchange-icon"></img>
+                      {item.protocol.slug}
+                    </div>
+                  </td>
+                  <td>Staking</td>
+                  <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
+                  <td>{(item.chains[0].positions[0].rewarded[0].apr * 100).toFixed(1)}%</td>
+                  <td></td>
                 </tr>
-                {dataNew.map((item) => (
-                    <tr className="stakes-row">
-                        <td>
-                            <div className="exchange-tile">
-                                <img src={`https://defiyield-icons.s3.eu-central-1.amazonaws.com/integrations/protocols/${item.protocol.slug.toLowerCase()}.webp`} className="exchange-icon"></img>
-                                {item.protocol.slug}
-                            </div>
-                        </td>
-                        <td>Staking</td>
-                        <td>{Number(item.chains[0].positions[0].supplied[0].amount.toFixed(3))}</td>
-                        <td>{(item.chains[0].positions[0].rewarded[0].apr * 100).toFixed(1)}%</td>
-                        <td></td>
-                    </tr>
-                ))}
-            </table>
+              ))}
+            </tbody>
+          </table>
         ) : (
             null
         )}
