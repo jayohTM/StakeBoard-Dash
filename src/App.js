@@ -1,6 +1,6 @@
 import Dash from "./Dash"
 import '@rainbow-me/rainbowkit/styles.css';
-import { argentWallet, trustWallet, ledgerWallet } from '@rainbow-me/rainbowkit/wallets';
+import { argentWallet, trustWallet, ledgerWallet, tahoWallet, omniWallet, zerionWallet } from '@rainbow-me/rainbowkit/wallets';
 import {
   getDefaultWallets,
   RainbowKitProvider,
@@ -31,11 +31,14 @@ const { wallets } = getDefaultWallets({
 const connectors = connectorsForWallets([
   ...wallets,
   {
-    groupName: 'Other',
+    groupName: 'More Wallets',
     wallets: [
-      argentWallet({ projectId, chains }),
+      // argentWallet({ projectId, chains }),
       trustWallet({ projectId, chains }),
       ledgerWallet({ projectId, chains }),
+      omniWallet({ projectId, chains }),
+      zerionWallet({ projectId, chains }),
+      tahoWallet({ projectId, chains }),
     ],
   },
 ]);
