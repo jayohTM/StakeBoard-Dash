@@ -12,40 +12,42 @@ import { mainnet, arbitrum, polygon, optimism } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
+const projectId = '5ad46a6cfa06d0dfd7595228ef802a91';
+
+const { chains, provider, webSocketProvider } = configureChains(
+  [mainnet, arbitrum, polygon, optimism],
+  [
+    alchemyProvider({ apiKey: "7NgQfM01vhHpxIHzQAUYx9XkIrWADPWg" }),
+    publicProvider()
+  ]
+);
+
+const { wallets } = getDefaultWallets({
+  appName: 'StakeBoard',
+  projectId,
+  chains,
+});
+
+const connectors = connectorsForWallets([
+  ...wallets,
+  {
+    groupName: 'Other',
+    wallets: [
+      argentWallet({ projectId, chains }),
+      trustWallet({ projectId, chains }),
+      ledgerWallet({ projectId, chains }),
+    ],
+  },
+]);
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider, 
+  webSocketProvider,
+})
 
 function App() {
-  const projectId = '5ad46a6cfa06d0dfd7595228ef802a91';
-  const { chains, provider, webSocketProvider } = configureChains(
-    [mainnet, arbitrum, polygon, optimism],
-    [
-      alchemyProvider({ apiKey: "7NgQfM01vhHpxIHzQAUYx9XkIrWADPWg" }),
-      publicProvider()
-    ]
-  );
-  const { wallets } = getDefaultWallets({
-    appName: 'StakeBoard',
-    projectId: projectId,
-    chains,
-  });
-
-  const connectors = connectorsForWallets([
-    ...wallets,
-    {
-      groupName: 'Other',
-      wallets: [
-        argentWallet({ projectId, chains }),
-        trustWallet({ projectId, chains }),
-        ledgerWallet({ projectId, chains }),
-      ],
-    },
-  ]);
-
-  const wagmiClient = createClient({
-    autoConnect: true,
-    connectors,
-    provider, 
-    webSocketProvider,
-  })
 
   return (
     <WagmiConfig client={wagmiClient}>
