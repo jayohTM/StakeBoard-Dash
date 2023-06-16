@@ -7,14 +7,14 @@ import {
   connectorsForWallets,
   darkTheme,
 } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { mainnet, arbitrum, polygon, optimism } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-const projectId = '5ad46a6cfa06d0dfd7595228ef802a91';
+const projectId = '5ad46a6cfa06d0dfd7595228ef802a91cl';
 
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, arbitrum, polygon, optimism],
   [
     alchemyProvider({ apiKey: "7NgQfM01vhHpxIHzQAUYx9XkIrWADPWg" }),
@@ -27,6 +27,10 @@ const { wallets } = getDefaultWallets({
   projectId,
   chains,
 });
+
+const appInfo = {
+  name: 'StakeBoard',
+};
 
 const connectors = connectorsForWallets([
   ...wallets,
@@ -43,18 +47,18 @@ const connectors = connectorsForWallets([
   },
 ]);
 
-const wagmiClient = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
-  provider, 
-  webSocketProvider,
+  publicClient, 
+  webSocketPublicClient,
 })
 
 function App() {
 
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} theme={darkTheme({
+    <WagmiConfig config={wagmiConfig}>
+      <RainbowKitProvider appInfo={appInfo} chains={chains} theme={darkTheme({
         accentColor: '#FFFFFF',
         accentColorForeground: '#000000',
         overlayBlur: 'small',
