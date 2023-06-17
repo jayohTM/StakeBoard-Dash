@@ -12,7 +12,7 @@ import { mainnet, arbitrum, polygon, optimism } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-const projectId = '5ad46a6cfa06d0dfd7595228ef802a91cl';
+const projectId = '5ad46a6cfa06d0dfd7595228ef802a91';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, arbitrum, polygon, optimism],
