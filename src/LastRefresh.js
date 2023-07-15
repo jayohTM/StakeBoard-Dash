@@ -15,6 +15,8 @@ function LastRefresh(props) {
                     console.log("time" + timeSinceGetData);
                 }, 1000)
                 return () => clearInterval(intervalId);
+            }else{
+                setTimeSinceGetData(0);
             }
         }
     }, [props.dataNew, timeSinceGetData]); 
@@ -23,7 +25,7 @@ function LastRefresh(props) {
     return (
         <div className="update-modal">
             <p className="update-status">
-                {props.dataNew && timeSinceGetData !== 0 ? (
+                {props.dataNew && timeSinceGetData !== 0 && isConnected ? (
                     <>
                         <img src={Refresh} className="refresh-icon"></img>
                         Updated {timeSinceGetData} seconds ago

@@ -283,7 +283,7 @@ function Stakes(props) {
               </tr>
             </thead>
             <tbody>
-              {dataNew.map((item) => (
+              {Array.isArray(dataNew) && dataNew.map((item) => (
                 <tr className="stakes-row">
                   <td>
                     <div className="exchange-tile">
