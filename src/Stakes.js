@@ -8,7 +8,10 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 //Environment variable for the Defiyield API key should ALWAYS use the name, REACT_APP_API_KEY
-const apiKey = process.env.REACT_APP_API_KEY;
+//const apiKey = process.env.REACT_APP_API_KEY;
+
+const apiKey = '58a2d695-c6ab-429e-8054-819f05d9a62a';
+
 async function sendQuery(address) {
     const protocolBalanceList = new Array();
     const protocolsData = protocolList;
